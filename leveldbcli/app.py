@@ -21,12 +21,13 @@ import os.path
 from docopt import docopt
 from leveldb import LevelDB
 
+
 def main():
     args = docopt(__doc__, version='leveldb-cli 0.1.0')
 
     cmd_create = args['create']
-    cmd_get    = args['get']
-    cmd_put    = args['put']
+    cmd_get = args['get']
+    cmd_put = args['put']
     cmd_delete = args['delete']
     db_path = args['<db_path>']
     db_exists = os.path.exists(db_path)
