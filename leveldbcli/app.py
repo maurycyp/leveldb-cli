@@ -24,7 +24,7 @@ from leveldb import LevelDB
 
 
 def main():
-    args = docopt(__doc__, version='leveldb-cli 0.1.0')
+    args = docopt(__doc__, version='leveldb-cli 0.2.1')
 
     cmd_create = args['create']
     cmd_get = args['get']

@@ -5,7 +5,7 @@ except ImportError:
 
 setup(
     name='leveldb-cli',
-    version='0.2.0',
+    version='0.2.1',
     description='A command-line interface for LevelDB databases.',
     long_description=open('README.txt').read(),
     author='Maurycy Pietrzak',
