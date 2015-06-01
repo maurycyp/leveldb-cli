@@ -3,7 +3,7 @@ leveldb-cli
 
 Usage:
   leveldb create -d <db_path>
-  leveldb get <key> -d <db_path>
+  leveldb get <key> -d <db_path> [-x | --hex]
   leveldb put <key> <value> -d <db_path>
   leveldb delete <key> -d <db_path>
   leveldb -h | --help
@@ -11,6 +11,7 @@ Usage:
 
 Options:
   -d --database  Database path
+  -x --hex       Print binary data in lowercase hex (without 0x prefix)
   -h --help      Show this screen
   -v --version   Show version
 '''
@@ -48,7 +49,10 @@ def main():
             print('Error: key %s does not exist' % k)
             return 1
         else:
-            print(v)
+            if args['--hex']:
+                print(v.encode('hex'))
+            else:
+                print(v)
     elif cmd_put:
         k, v = args['<key>'], args['<value>']
         db.Put(k, v)
