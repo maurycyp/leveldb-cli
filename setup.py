@@ -5,7 +5,7 @@ except ImportError:
 
 setup(
     name='leveldb-cli',
-    version='0.2.1',
+    version='0.3.0',
     description='A command-line interface for LevelDB databases.',
     long_description=open('README.txt').read(),
     author='Maurycy Pietrzak',
@@ -20,11 +20,13 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
         'Topic :: Database',
     ],
     install_requires=[
         'docopt==0.6.2',
         'leveldb==0.193',
+        'six==1.9.0',
     ],
     entry_points={'console_scripts': [
         'leveldb = leveldbcli.app:main',

@@ -16,15 +16,15 @@ Options:
   -v --version   Show version
 '''
 
-from __future__ import print_function
 import os.path
 
+import six
 from docopt import docopt
 from leveldb import LevelDB
 
 
 def main():
-    args = docopt(__doc__, version='leveldb-cli 0.2.1')
+    args = docopt(__doc__, version='leveldb-cli 0.3.0')
 
     cmd_create = args['create']
     cmd_get = args['get']
@@ -33,10 +33,10 @@ def main():
     db_path = args['<db_path>']
     db_exists = os.path.exists(db_path)
     if db_exists and cmd_create:
-        print('Error: file %s exists' % db_path)
+        six.print_('Error: file %s exists' % db_path)
         return 1
     if not db_exists and any([cmd_get, cmd_put, cmd_delete]):
-        print('Error: database %s does not exist' % db_path)
+        six.print_('Error: database %s does not exist' % db_path)
         return 1
 
     db = LevelDB(db_path)  # create or open
@@ -46,13 +46,13 @@ def main():
         try:
             v = db.Get(k)
         except KeyError:
-            print('Error: key %s does not exist' % k)
+            six.print_('Error: key %s does not exist' % k)
             return 1
         else:
             if args['--hex']:
-                print(v.encode('hex'))
+                six.print_(v.encode('hex'))
             else:
-                print(v)
+                six.print_(v)
     elif cmd_put:
         k, v = args['<key>'], args['<value>']
         db.Put(k, v)
