@@ -9,7 +9,7 @@ setup(
     description='A command-line interface for LevelDB databases.',
     long_description=open('README.txt').read(),
     author='Maurycy Pietrzak',
-    author_email=['github.com@wayheavy.com'],
+    author_email='github.com@wayheavy.com',
     url='https://github.com/maurycyp/leveldb-cli',
     packages=['leveldbcli'],
     license='Unlicense',
